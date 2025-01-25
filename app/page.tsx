@@ -1,4 +1,3 @@
-import GameTabs from './components/GameTabs';
 import Link from 'next/link';
 
 export default function Home() {
@@ -43,12 +42,19 @@ export default function Home() {
       icon: '🃏',
       ready: false
     },
+    {
+      id: 'snake',
+      name: 'Snake',
+      description: 'Classic snake game with modern graphics',
+      path: '/snake',
+      icon: '🐍',
+      ready: true
+    },
     // Add more games here
   ];
 
   return (
     <div className="min-h-screen bg-gray-900">
-      <GameTabs />
       <main className="pt-20 p-8">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl font-bold text-white mb-8 text-center">

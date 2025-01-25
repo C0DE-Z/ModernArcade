@@ -13,6 +13,7 @@ export default function GameTabs() {
     { id: 'blackjack', name: 'Blackjack', path: '/blackjack', ready: true },
     { id: 'solitaire', name: 'Solitaire', path: '/solitaire', ready: false },
     { id: 'poker', name: 'Poker', path: '/poker', ready: false },
+    { id: 'snake', name: 'Snake', path: '/snake', ready: true },
   ];
 
   return (
