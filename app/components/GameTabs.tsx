@@ -1,4 +1,5 @@
 'use client';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 
