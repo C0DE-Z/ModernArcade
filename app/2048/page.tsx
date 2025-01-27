@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const GRID_SIZE = 4;
 const CELL_COLORS: { [key: number]: string } = {
@@ -80,7 +81,7 @@ export default function Game2048() {
 
     // Process each row
     for (let i = 0; i < GRID_SIZE; i++) {
-      let row = newGrid[i].filter(cell => cell !== 0);
+      const row = newGrid[i].filter(cell => cell !== 0);
       for (let j = 0; j < row.length - 1; j++) {
         if (row[j] === row[j + 1]) {
           row[j] *= 2;
@@ -110,13 +111,13 @@ export default function Game2048() {
         }
       }, 150); // Match the slide transition duration
     }
-  }, [grid, score]);
+  }, [canMove, grid, score]);
 
   // 3. All useEffect hooks
   useEffect(() => {
     setMounted(true);
     setGrid(initializeGrid());
-  }, []);
+  }, [initializeGrid]);
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {

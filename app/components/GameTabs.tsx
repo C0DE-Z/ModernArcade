@@ -20,7 +20,7 @@ export default function GameTabs() {
     { id: 'poker', name: 'Poker', path: '/poker', ready: false },
     { id: 'breakout', name: 'Breakout', path: '/breakout', ready: true },
   ];
-
+                                                                    
   return (
     <div className="fixed top-0 left-0 w-full bg-gray-900 border-b border-gray-700 z-50">
       <div className="max-w-6xl mx-auto px-4">

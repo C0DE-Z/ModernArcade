@@ -18,7 +18,7 @@ export default function Solitaire() {
   const [tableau, setTableau] = useState<CardWithMetadata[][]>(Array(7).fill([]));
   const [stock, setStock] = useState<CardWithMetadata[]>([]);
   const [waste, setWaste] = useState<CardWithMetadata[]>([]);
-  const [draggedCard, setDraggedCard] = useState<CardWithMetadata | null>(null);
+  const [] = useState<CardWithMetadata | null>(null);
   const [moves, setMoves] = useState(0);
 
   useEffect(() => {
@@ -57,25 +57,7 @@ export default function Solitaire() {
     setMoves(0);
   }
 
-  function handleDragStart(card: CardWithMetadata) {
-    if (!card.revealed) return;
-    setDraggedCard(card);
-  }
 
-  function handleDrop(targetPile: PileType, pileIndex: number) {
-    if (!draggedCard) return;
-
-    // Implement move validation and card movement logic here
-    // This is a simplified version
-    const isValidMove = validateMove(draggedCard, targetPile, pileIndex);
-    
-    if (isValidMove) {
-      moveCard(draggedCard, targetPile, pileIndex);
-      setMoves(moves + 1);
-    }
-
-    setDraggedCard(null);
-  }
 
   // Add move validation and card movement logic...
 
