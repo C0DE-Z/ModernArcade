@@ -11,9 +11,12 @@ export default function GameTabs() {
     { id: 'minesweeper', name: 'Minesweeper', path: '/minesweeper', ready: true },
     { id: '2048', name: '2048', path: '/2048', ready: true },
     { id: 'blackjack', name: 'Blackjack', path: '/blackjack', ready: true },
+    { id: 'snake', name: 'Snake', path: '/snake', ready: true },
+    { id: 'pacman', name: 'Pac-Man', path: '/pacman', ready: true },
+    { id: 'pong', name: 'Pong', path: '/pong', ready: true },
+    { id: 'tictactoe', name: 'Tic Tac Toe', path: '/tictactoe', ready: true },
     { id: 'solitaire', name: 'Solitaire', path: '/solitaire', ready: false },
     { id: 'poker', name: 'Poker', path: '/poker', ready: false },
-    { id: 'snake', name: 'Snake', path: '/snake', ready: true },
   ];
 
   return (

@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 export default function Home() {
   const games = [
+    // Working games first
     {
       id: 'minesweeper',
       name: 'Minesweeper',
@@ -27,6 +28,39 @@ export default function Home() {
       ready: true
     },
     {
+      id: 'snake',
+      name: 'Snake',
+      description: 'Classic snake game with modern graphics',
+      path: '/snake',
+      icon: '🐍',
+      ready: true
+    },
+    {
+      id: 'pacman',
+      name: 'Pac-Man',
+      description: 'Navigate mazes and avoid ghosts',
+      path: '/pacman',
+      icon: '👾',
+      ready: true
+    },
+    {
+      id: 'pong',
+      name: 'Pong',
+      description: 'Classic table tennis arcade game',
+      path: '/pong',
+      icon: '🏓',
+      ready: true
+    },
+    {
+      id: 'tictactoe',
+      name: 'Tic Tac Toe',
+      description: 'Classic X and O game',
+      path: '/tictactoe',
+      icon: '⭕',
+      ready: true
+    },
+    // Games in progress below
+    {
       id: 'solitaire',
       name: 'Solitaire',
       description: 'Classic card game of patience',
@@ -43,14 +77,45 @@ export default function Home() {
       ready: false
     },
     {
-      id: 'snake',
-      name: 'Snake',
-      description: 'Classic snake game with modern graphics',
-      path: '/snake',
-      icon: '🐍',
-      ready: true
+      id: 'tetris',
+      name: 'Tetris',
+      description: 'Classic block-falling puzzle game',
+      path: '/tetris',
+      icon: '🎯',
+      ready: false
     },
-    // Add more games here
+    {
+      id: 'breakout',
+      name: 'Breakout',
+      description: 'Break blocks with a bouncing ball',
+      path: '/breakout',
+      icon: '🧱',
+      ready: false
+    },
+    {
+      id: 'flappybird',
+      name: 'Flappy Bird',
+      description: 'Navigate through pipes',
+      path: '/flappybird',
+      icon: '🐦',
+      ready: false
+    },
+    {
+      id: 'memory',
+      name: 'Memory Game',
+      description: 'Match pairs of cards',
+      path: '/memory',
+      icon: '🎴',
+      ready: false
+    },
+    {
+      id: 'hangman',
+      name: 'Hangman',
+      description: 'Guess the word letter by letter',
+      path: '/hangman',
+      icon: '📝',
+      ready: false
+    }
   ];
 
   return (
