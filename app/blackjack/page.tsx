@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Card, createDeck } from '../utils/cards';
+import { Card, createDeck, Deck } from '../utils/cards';
 import PlayingCard from '../components/PlayingCard';
 
 export default function Blackjack() {
@@ -73,7 +73,7 @@ export default function Blackjack() {
     setGameState('dealerTurn');
     let currentHand = [...dealerHand];
     while (calculateHand(currentHand) < 17) {
-      const [newHand, _] = dealCard(currentHand);
+      const [newHand] = dealCard(currentHand);
       currentHand = newHand;
       setDealerHand(currentHand);
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -103,7 +103,7 @@ export default function Blackjack() {
   }
 
   function hit() {
-    const [newHand, _] = dealCard(playerHand);
+    const [newHand] = dealCard(playerHand);
     setPlayerHand(newHand);
     if (calculateHand(newHand) > 21) {
       setMessage('Bust! You lose!');
