@@ -59,6 +59,14 @@ export default function Home() {
       icon: '⭕',
       ready: true
     },
+    {
+      id: 'breakout',
+      name: 'Breakout',
+      description: 'Break blocks with a bouncing ball',
+      path: '/breakout',
+      icon: '🧱',
+      ready: true
+    },
     // Games in progress below
     {
       id: 'solitaire',
@@ -82,14 +90,6 @@ export default function Home() {
       description: 'Classic block-falling puzzle game',
       path: '/tetris',
       icon: '🎯',
-      ready: false
-    },
-    {
-      id: 'breakout',
-      name: 'Breakout',
-      description: 'Break blocks with a bouncing ball',
-      path: '/breakout',
-      icon: '🧱',
       ready: false
     },
     {

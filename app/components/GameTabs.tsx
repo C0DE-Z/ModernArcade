@@ -17,6 +17,7 @@ export default function GameTabs() {
     { id: 'tictactoe', name: 'Tic Tac Toe', path: '/tictactoe', ready: true },
     { id: 'solitaire', name: 'Solitaire', path: '/solitaire', ready: false },
     { id: 'poker', name: 'Poker', path: '/poker', ready: false },
+    { id: 'breakout', name: 'Breakout', path: '/breakout', ready: true },
   ];
 
   return (
