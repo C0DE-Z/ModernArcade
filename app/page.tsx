@@ -67,6 +67,22 @@ export default function Home() {
       icon: '🧱',
       ready: true
     },
+    {
+      id: 'flappybird',
+      name: 'Flappy Bird',
+      description: 'Navigate through pipes',
+      path: '/flappybird',
+      icon: '🐦',
+      ready: true
+    },
+    {
+      id: 'memory',
+      name: 'Memory Game',
+      description: 'Match pairs of cards',
+      path: '/memory',
+      icon: '🎴',
+      ready: true
+    },
     // Games in progress below
     {
       id: 'solitaire',
@@ -90,23 +106,8 @@ export default function Home() {
       description: 'Classic block-falling puzzle game',
       path: '/tetris',
       icon: '🎯',
-      ready: false
-    },
-    {
-      id: 'flappybird',
-      name: 'Flappy Bird',
-      description: 'Navigate through pipes',
-      path: '/flappybird',
-      icon: '🐦',
-      ready: false
-    },
-    {
-      id: 'memory',
-      name: 'Memory Game',
-      description: 'Match pairs of cards',
-      path: '/memory',
-      icon: '🎴',
-      ready: false
+      ready: true,
+      buggy: true
     },
     {
       id: 'hangman',
@@ -143,6 +144,13 @@ export default function Home() {
                                  bg-yellow-500 text-black font-bold py-2 px-8 rounded-lg shadow-lg 
                                  border-2 border-yellow-600">
                     WORK IN PROGRESS
+                  </div>
+                )}
+                {game.buggy && (
+                  <div className="absolute -rotate-12 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                                 bg-red-500 text-white font-bold py-2 px-8 rounded-lg shadow-lg 
+                                 border-2 border-red-600">
+                    BUGGY
                   </div>
                 )}
               </div>

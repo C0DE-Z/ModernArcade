@@ -19,15 +19,14 @@ const CELL_COLORS: { [key: number]: string } = {
 };
 
 export default function Game2048() {
-  // Helper functions (not hooks)
-  function initializeGrid() {
+  const initializeGrid = () => {
     const newGrid = Array(GRID_SIZE).fill(0).map(() => Array(GRID_SIZE).fill(0));
     addNewNumber(newGrid);
     addNewNumber(newGrid);
     return newGrid;
-  }
+  };
 
-  function addNewNumber(grid: number[][]) {
+  const addNewNumber = (grid: number[][]) => {
     const emptyCells = [];
     for (let i = 0; i < GRID_SIZE; i++) {
       for (let j = 0; j < GRID_SIZE; j++) {
@@ -38,15 +37,13 @@ export default function Game2048() {
       const [i, j] = emptyCells[Math.floor(Math.random() * emptyCells.length)];
       grid[i][j] = Math.random() < 0.9 ? 2 : 4;
     }
-  }
+  };
 
-  // 1. All useState hooks
   const [mounted, setMounted] = useState(false);
   const [grid, setGrid] = useState<number[][]>([]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
 
-  // 2. All useCallback hooks
   const canMove = useCallback((grid: number[][]) => {
     for (let i = 0; i < GRID_SIZE; i++) {
       for (let j = 0; j < GRID_SIZE; j++) {
@@ -74,12 +71,10 @@ export default function Game2048() {
       return rotated;
     };
 
-    // Align grid so we can always process left-to-right
     if (direction === 'up') newGrid = rotate(rotate(rotate(newGrid)));
     else if (direction === 'right') newGrid = rotate(rotate(newGrid));
     else if (direction === 'down') newGrid = rotate(newGrid);
 
-    // Process each row
     for (let i = 0; i < GRID_SIZE; i++) {
       const row = newGrid[i].filter(cell => cell !== 0);
       for (let j = 0; j < row.length - 1; j++) {
@@ -95,29 +90,25 @@ export default function Game2048() {
       newGrid[i] = newRow;
     }
 
-    // Rotate back
     if (direction === 'up') newGrid = rotate(newGrid);
     else if (direction === 'right') newGrid = rotate(rotate(newGrid));
     else if (direction === 'down') newGrid = rotate(rotate(rotate(newGrid)));
 
     if (moved) {
-      setTimeout(() => {
-        addNewNumber(newGrid);
-        setScore(newScore);
-        setGrid(newGrid);
+      addNewNumber(newGrid);
+      setScore(newScore);
+      setGrid(newGrid);
 
-        if (!canMove(newGrid)) {
-          setGameOver(true);
-        }
-      }, 150); // Match the slide transition duration
+      if (!canMove(newGrid)) {
+        setGameOver(true);
+      }
     }
   }, [canMove, grid, score]);
 
-  // 3. All useEffect hooks
   useEffect(() => {
     setMounted(true);
     setGrid(initializeGrid());
-  }, [initializeGrid]);
+  }, []);
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -134,10 +125,8 @@ export default function Game2048() {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [moveGrid, gameOver]);
 
-  // Prevent hydration issues
   if (!mounted) return null;
 
-  // Reset game function (not a hook)
   const resetGame = () => {
     setGrid(initializeGrid());
     setScore(0);
@@ -157,7 +146,6 @@ export default function Game2048() {
     damping: 30
   };
 
-  // Render JSX
   return (
     <div className="pt-20 p-8 min-h-screen bg-gray-900">
       <div className="max-w-md mx-auto">
@@ -189,7 +177,6 @@ export default function Game2048() {
 
         <div className="bg-gray-700 p-4 rounded-lg">
           <div className="relative" style={{ paddingBottom: '100%' }}>
-            {/* Static background grid */}
             <div className="absolute inset-0 grid grid-cols-4 gap-2">
               {Array(16).fill(null).map((_, i) => (
                 <div
@@ -199,7 +186,6 @@ export default function Game2048() {
               ))}
             </div>
 
-            {/* Animated tiles */}
             <div className="absolute inset-0 grid grid-cols-4 gap-2">
               {grid.map((row, i) => 
                 row.map((cell, j) => 
@@ -235,7 +221,8 @@ export default function Game2048() {
 
         <AnimatePresence>
           {gameOver && (
-            <motion.div              initial={{ opacity: 0, y: 20 }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               className="mt-4 text-center text-white text-xl"
