@@ -27,7 +27,7 @@ export default function GameTabs() {
   useEffect(() => {
     const workingGames = games.filter(game => game.ready && game.id !== 'home');
     const shuffled = workingGames.sort(() => 0.5 - Math.random());
-    setRandomGames([games[0], ...shuffled.slice(0, 3)]);
+    setRandomGames([games[0], ...shuffled.slice(0, 4)]);
   }, []);
 
   return (

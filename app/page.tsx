@@ -83,6 +83,14 @@ export default function Home() {
       icon: '🎴',
       ready: true
     },
+    {
+      id: 'spaceinvaders',
+      name: 'Space Invaders',
+      description: 'Shoot down waves of aliens',
+      path: '/spaceinvaders',
+      icon: '👾',
+      ready: true
+    },
     // Games in progress below
     {
       id: 'solitaire',
@@ -115,7 +123,7 @@ export default function Home() {
       description: 'Guess the word letter by letter',
       path: '/hangman',
       icon: '📝',
-      ready: false
+      ready: true
     }
   ];
 
